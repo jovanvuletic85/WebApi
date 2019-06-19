@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Models";
+}
+
+<div class="jumbotron">
+    <h2>Filtering</h2>
+</div>
+<div class="row" ng-app="ModelApplication" ng-controller="ModelController" ng-init="DispayBrand()"> 
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <label for="Select1">Choose brand</label>
+                <select id="Select1" ng-model="BrandId" class="form-control" ng-change="DispayModels(BrandId)">
+                    <option ng-repeat="b1 in brandList" value="{{b1.BrandId}}">
+                        {{b1.BrandName}}
+                    </option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <table class="table table-condensed">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Years</th>
+                <th>Price</th>
+                <th>Fuel</th>
+            </tr>
+            <tr ng-repeat="m in modelsList">
+                <td>{{m.ModelId}}</td>
+                <td>{{m.ModelName}}</td>
+                <td>{{m.YearsOfAge}}</td>
+                <td>{{m.Price}}</td>
+                <td>{{m.Fuel}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@section Scripts{
+    
+<script src="~/Scripts/angular.min.js"></script>
+
+<script src="~/Scripts/Models.js"></script>
+
+    }

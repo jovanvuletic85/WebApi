@@ -1,0 +1,46 @@
+﻿<div class="jumbotron">
+    <h3>List of vehicles</h3>
+</div>
+<div class="row" ng-app="BrandApplication">
+    <div class="col-md-6"  ng-controller="BrandsController">
+        <table class="table table-bordered table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Country</th>
+            </tr>
+            <tr ng-repeat="b in brandList">
+                <td>{{b.BrandId}}</td>
+                <td>{{b.BrandName}}</td>
+                <td>{{b.CountryOfOrigin}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-md-6"  ng-controller="BrandController">
+      <form>
+          <div class="form-group">
+            <label for="Text1">Enter the brand Id</label> 
+              <input id="Text1" type="text" class="form-control" ng-model="BrandId"/>
+          </div>
+          <input id="Button1" type="button" value="Find" class="btn btn-default" ng-click="DisplayBrand(BrandId)"/>
+      </form>
+        <br/>
+        <p>
+            Brand Id : {{b1.BrandId}} <br />
+            Brand Name : {{b1.BrandName}} <br />
+            Coutry of brand : {{b1.CountryOfOrigin}} <br />
+        </p>
+        <p>
+            {{er2}}
+        </p>
+    </div>
+</div>
+
+@section Scripts{
+    
+<script src="~/Scripts/angular.min.js"></script>
+
+<script src="~/Scripts/Brands.js"></script>
+
+    }
